@@ -13,8 +13,7 @@ data
 		- seriale
 		- incomplete 
 
-Tree file docker and settings: 
 
-/home/razvan/dockercompose
-/home/razvan/server
+
+
 
