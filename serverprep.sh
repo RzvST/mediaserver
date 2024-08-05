@@ -1,6 +1,6 @@
 #!/bin/bash
 
 echo "Check and install updates"
-apt-get update
-apt-get upgrade
+sudo apt update
+sudo apt upgrade
 echo "Updates done"
