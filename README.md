@@ -17,6 +17,8 @@ data
 
 Instalation:
 
+Server Updates:
+
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/RzvST/mediaserver/main/serverprep.sh)"
 
                    
