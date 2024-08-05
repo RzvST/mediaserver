@@ -15,5 +15,5 @@ data
 
 
 
-
+https://raw.githubusercontent.com/RzvST/mediaserver/main/serverprep.sh
 
