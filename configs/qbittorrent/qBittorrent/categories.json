@@ -1,8 +1,0 @@
-{
-    "filme": {
-        "save_path": "/data/torrents/filme"
-    },
-    "seriale": {
-        "save_path": "/data/torrents/seriale"
-    }
-}
