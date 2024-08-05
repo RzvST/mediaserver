@@ -15,5 +15,7 @@ data
 
 
 
+Instalation:
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/RzvST/mediaserver/main/serverprep.sh)"
 
