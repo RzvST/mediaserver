@@ -19,6 +19,15 @@ Instalation:
 
 Server Updates:
 
-sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/RzvST/mediaserver/main/serverprep.sh)"
+	sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/RzvST/mediaserver/main/scripts/serverupdate.sh)"
+
+Docker Setup: 
+
+	sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/RzvST/mediaserver/main/scripts/dockersetup.sh)"
+
+Portainer Setup:
+
+	sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/RzvST/mediaserver/main/scripts/portainersetup.sh)"
+						
 
                    
