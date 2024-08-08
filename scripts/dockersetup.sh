@@ -26,11 +26,11 @@ sudo apt-get update
 
 echo "****************  Install the Docker packages ****************"
 
-sudo apt-get install docker-ce && -y \
-sudo apt-get install docker-ce-cli -y && \
-sudo apt-get install containerd.io -y && \
-sudo apt-get install docker-buildx-plugin -y && \
-sudo apt-get install docker-compose-plugin -y
+sudo apt-get install -qqy docker-ce && \
+sudo apt-get install -qqy docker-ce-cli && \
+sudo apt-get install -qqy containerd.io && \
+sudo apt-get install -qqy docker-buildx-plugin && \
+sudo apt-get install -qqy docker-compose-plugin
 
 echo "****************  Check if Docker is installed ****************"
 
