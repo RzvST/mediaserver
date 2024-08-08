@@ -1,117 +1,115 @@
 services:
- prowlarr:
-  container_name: prowlarr
-  image: 'linuxserver/prowlarr'
-  ports:
-    - '9696:9696'
-  environment:
-    - PUID=1000
-    - PGID=1000
-    - TZ=Europe/Bucharest
-  volumes:
-    - '/home/${USER}/server/configs/prowlarr:/config'
-  restart: unless-stopped
- jellyfin:
-  container_name: jellyfin
-  image: jellyfin/jellyfin
-  environment:
-    - PUID=1000
-    - PGID=1000
-    - TZ=Europe/Bucharest
-  ports:
-    - '8096:8096'
-  volumes:
-    - '/home/${USER}/server/configs/jellyfin:/config'
-    - '/data:/data'
-  restart: unless-stopped
- sonarr:
-  container_name: sonarr
-  image: linuxserver/sonarr
-  environment:
-    - PUID=1000
-    - PGID=1000
-    - TZ=Europe/Bucharest
-  ports:
-    - '8989:8989'
-  volumes:
-    - '/home/${USER}/server/configs/sonarr:/config'
-    - '/data:/data'
-  restart: unless-stopped
- radarr:
-  container_name: radarr
-  image: linuxserver/radarr
-  environment:
-   - PUID=1000
-   - PGID=1000
-   - TZ=Europe/Bucharest
-  ports:
-   - '7878:7878'
-  volumes:
-   - '/home/${USER}/server/configs/radarr:/config'
-   - '/data:/data'
-  restart: unless-stopped
- bazarr:
-  container_name: bazarr
-  image: linuxserver/bazarr
-  environment:
-   - PUID=1000
-   - PGID=1000
-   - TZ=Europe/Bucharest
-  volumes:
-   - '/home/${USER}/server/configs/bazarr:/config'
-   - '/data:/data'
-  ports:
-   - '6767:6767'
-  restart: unless-stopped
- heimdall:
-  container_name: heimdall
-  image: linuxserver/heimdall
-  environment:
-   - PUID=1000
-   - PGID=1000
-   - TZ=Europe/Bucharest
-  volumes:
-   - '/home/${USER}/server/configs/heimdall:/config'
-  ports:
-   - 8090:80
-  restart: unless-stopped
- qbittorrent:
-  container_name: qbittorrent
-  image: linuxserver/qbittorrent
-  ports:
-   - "8080:8080"
-   - "6881:6881"
-   - "6881:6881/udp"
-  environment:
-   - PUID=1000
-   - PGID=1000
-   - UMASK=002
-   - TZ=Europe/Bucharest
-   - WEBUI_PORT=8080
-  volumes:
-   - '/home/${USER}/server/configs/qbittorrent:/config'
-   - '/data/torrents:/data/torrents'
-  restart: unless-stopped
- jellyseerr:
-  image: fallenbagel/jellyseerr:latest
-  container_name: jellyseerr
-  environment:
-   - LOG_LEVEL=debug
-   - TZ=Europe/Bucharest
-  ports:
-   - 5055:5055
-  volumes:
-   - '/home/${USER}/server/configs/jellyseerr:/app/config'
-  restart: unless-stopped
- portainer:
-  image: portainer/portainer-ce:latest
-  container_name: portainer
-  security_opt:
-   - no-new-privileges:true
-  ports:
-   - 9000:9000
-  volumes:
-   - '/etc/localtime:/etc/localtime:ro'
-   - '/var/run/docker.sock:/var/run/docker.sock:ro'
-   - '/home/${USER}/server/configs/portainer:/data'
-  restart: unless-stopped
+  prowlarr:
+    container_name: prowlarr
+    image: 'linuxserver/prowlarr'
+    ports:
+     - '9696:9696'
+    environment:
+     - PUID=1000
+     - PGID=1000
+     - TZ=Europe/Bucharest
+    volumes:
+     - '/home/${user}/server/configs/prowlarr:/config'
+    restart: unless-stopped
+  jellyfin:
+   container_name: jellyfin
+   image: jellyfin/jellyfin
+   environment:
+     - PUID=1000
+     - PGID=1000
+     - TZ=Europe/Bucharest
+   ports:
+     - '8096:8096'
+   volumes:
+     - '/home/${user}/server/configs/jellyfin:/config'
+     - '/mnt/data:/data'
+   restart: unless-stopped
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    environment:
+     - WATCHTOWER_SCHEDULE= 0 0 04 ? * MON
+     - TZ=Europe/Bucharest
+     - WATCHTOWER_CLEANUP=true
+     - WATCHTOWER_INCLUDE_RESTARTING=true
+    volumes:
+      - '/home/${user}/server/configs/watchtower:/config'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+    restart: unless-stopped
+  sonarr:
+    container_name: sonarr
+    image: linuxserver/sonarr
+    environment:
+     - PUID=1000
+     - PGID=1000
+     - TZ=Europe/Bucharest
+    ports:
+     - '8989:8989'
+    volumes:
+     - '/home/${user}/server/configs/sonarr:/config'
+     - '/mnt/data:/data'
+    restart: unless-stopped
+  radarr:
+    container_name: radarr
+    image: linuxserver/radarr
+    environment:
+     - PUID=1000
+     - PGID=1000
+     - TZ=Europe/Bucharest
+    ports:
+     - '7878:7878'
+    volumes:
+     - '/home/${user}/server/configs/radarr:/config'
+     - '/mnt/data:/data'
+    restart: unless-stopped
+  bazarr:
+    container_name: bazarr
+    image: linuxserver/bazarr
+    environment:
+     - PUID=1000
+     - PGID=1000
+     - TZ=Europe/Bucharest
+    ports:
+     - '6767:6767'
+    volumes:
+     - '/home/${user}/server/configs/bazarr:/config'
+     - '/mnt/data:/data'
+    restart: unless-stopped
+  qbittorrent:
+    container_name: qbittorrent
+    image: linuxserver/qbittorrent
+    environment:
+     - PUID=1000
+     - PGID=1000
+     - TZ=Europe/Bucharest
+     - UMASK=002
+     - WEBUI_PORT=8080
+    ports:
+     - '8080:8080'
+     - '6881:6881'
+     - '6881:6881/udp'
+    volumes:
+     - '/home/${user}/server/configs/qbittorrent:/config'
+     - '/mnt/data/torrents:/data/torrents'
+    restart: unless-stopped
+  jellyseerr:
+    container_name: jellyseerr
+    image: fallenbagel/jellyseerr:latest
+    environment:
+     - LOG_LEVEL=debug
+     - TZ=Europe/Bucharest
+    ports:
+     - '5055:5055'
+    volumes:
+     - '/home/${user}/server/configs/jellyseerr:/app/config'
+    restart: unless-stopped
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    restart: unless-stopped
+    volumes:
+      - '/home/${user}/server/configs/homarr:/app/data/configs'
+      - '/home/${user}/server/configs/homarr:/data'
+      - '/home/${user}/server/configs/homarr:/app/public/icons'
+    ports:
+      - '7575:7575'
