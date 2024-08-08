@@ -8,4 +8,9 @@ echo "**************** Create and Copy Portainer Configuration ****************"
 
 sudo mkdir /var/lib/docker/volumes/portainer_data/_data/compose/1
 
-sudo cp mediaserver.yml /var/lib/docker/volumes/portainer_data/_data/compose/1
+sudo cp mediaserver.yml /var/lib/docker/volumes/portainer_data/_data/compose/1/
+
+echo "**************** Restarting Portainer Container ****************"
+
+sudo docker restart portainer
+
