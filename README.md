@@ -29,5 +29,7 @@ Portainer Setup:
 
 	sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/RzvST/mediaserver/main/scripts/portainersetup.sh)"
 						
+Accesing containers : 
 
+	Portainer: https://Machine_IP:9443/
                    
