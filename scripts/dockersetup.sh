@@ -31,3 +31,8 @@ sudo apt-get install docker-ce-cli -y && \
 sudo apt-get install containerd.io -y && \
 sudo apt-get install docker-buildx-plugin -y && \
 sudo apt-get install docker-compose-plugin -y
+
+echo "****************  Check if Docker is installed ****************"
+
+sudo docker ps
+sudo docker info
