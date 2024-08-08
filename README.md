@@ -28,6 +28,10 @@ Docker Setup:
 Portainer Setup:
 
 	sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/RzvST/mediaserver/main/scripts/portainersetup.sh)"
+
+Portainer configuration file:
+
+ 	sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/RzvST/mediaserver/main/scripts/portainer_stacks.sh)"
 						
 Accesing containers : 
 
