@@ -2,6 +2,12 @@
 
 #Official Docker Ubuntu Installation Docs : https://docs.docker.com/engine/install/ubuntu/
 
+# Remove older versions 
+
+echo "****************  Remove older Docker Versions ****************"
+
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+
 # Add Docker's official GPG key:
 
 echo "****************  Add Docker's official GPG key ****************"
